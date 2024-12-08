@@ -7,18 +7,18 @@ const Home: React.FC = () => {
   return (
     <div className={css.wrapper}>
       <div className={css.centerItems}>
-        <h1>Добро пожаловать в мой проект!</h1>
+        <h1>Где меня можно найти</h1>
         <Link
-          className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-700 transition"
+          className="px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800 transition"
           href="https://github.com/eugener3"
         >
-          Я в Github
+          я в GitHub
         </Link>
         <Link
-          className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition"
+          className="px-8 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-600 transition"
           href="https://t.me/e_sora"
         >
-          Я в тг 
+          Я в тг
         </Link>
       </div>
     </div>
@@ -26,4 +26,3 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-
