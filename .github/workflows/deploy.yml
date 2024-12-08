@@ -47,11 +47,11 @@ jobs:
             script: |
                 set -e
 
-                if [ ! -d "/opt/app" ]; then
-                sudo mkdir -p /opt/app
-                sudo chown $USER:$USER /opt/app
+                if [ ! -d "/opt/app/yudya" ]; then
+                sudo mkdir -p /opt/app/yudya
+                sudo chown $USER:$USER /opt/app/yudya
                 fi
-                docker compose -f /opt/app/docker-compose.yml down || true
+                docker compose -f /opt/app/yudya/docker-compose.yml down || true
 
                 docker pull ${{ secrets.DOCKER_USERNAME }}/yudya:latest
 
