@@ -16,10 +16,10 @@ jobs:
           uses: actions/setup-node@v3
           with:
             node-version: 21
-            cache: 'pnpm'
+            cache: 'npm'
 
         - name: Install dependencies
-          run: pnpm install --frozen-lockfile
+          run: npm install --frozen-lockfile
 
         - name: Build Docker Image
           run: docker build -t yudya:latest
