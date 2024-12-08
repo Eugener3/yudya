@@ -47,16 +47,23 @@ jobs:
             script: |
                 set -e
 
-                if [ ! -d "/opt/app/yudya" ]; then
-                sudo mkdir -p /opt/app/yudya
-                sudo chown $USER:$USER /opt/app/yudya
+                if [ ! -d "/opt/app/yuyda" ]; then
+                git clone git@github.com:Eugener3/yudya.git /opt/app/yuyda
                 fi
-                docker compose -f /opt/app/yudya/docker-compose.yml down || true
 
-                docker pull ${{ secrets.DOCKER_USERNAME }}/yudya:latest
+                cd /opt/app/yuyda
+
+                git fetch origin main
+                git reset --hard origin/main
+
+                echo "${{ secrets.ENV_CONTENTS }}" > /opt/app/yuyda/.env
+
+                docker compose down
+
+                docker compose pull
 
                 docker system prune -af
 
-                docker compose -f /opt/app/docker-compose.yml up -d --build
+                docker compose up -d --build
 
                 docker ps -a
