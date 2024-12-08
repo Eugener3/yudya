@@ -1,0 +1,16 @@
+.wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  
+    .centerItems {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 60px;
+    }
+  
+  }
