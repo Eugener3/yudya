@@ -12,14 +12,17 @@ jobs:
         - name: Checkout code
           uses: actions/checkout@v3
 
+        - name: Install pnpm
+          run: npm install -g pnpm
+
         - name: Setup NodeJs
           uses: actions/setup-node@v3
           with:
             node-version: 21
-            cache: 'npm'
+            cache: 'pnpm'
 
         - name: Install dependencies
-          run: npm install --frozen-lockfile
+          run: pnpm install --frozen-lockfile
 
         - name: Build Docker Image
           run: docker build -t yudya:latest
